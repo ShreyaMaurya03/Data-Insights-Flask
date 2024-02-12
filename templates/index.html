@@ -1,0 +1,185 @@
+{% extends 'basic.html' %}
+{% block body %}
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-5 col-md-6 col-sm-12 col-12 mb-2 mt-4">
+                            <canvas id="myChart" height="200px"></canvas>
+                            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                            <!-- Chart script goes here -->
+                            <script>
+                                const ctx = document.getElementById('myChart');
+                                const labels = [{% if data1 %}{% for row in data1 %}"{{ row[0] }}",{% endfor %}{% endif %}];
+                                const end_year = [{% if data1 %}{% for row in data1 %}"{{ row[1] }}",{% endfor %}{% endif %}];
+
+                                new Chart(ctx, {
+                                    type: 'line',
+                                    data: {
+                                        labels: labels,
+                                        datasets: [{
+                                            label: 'End Year',
+                                            data: end_year,
+                                            borderWidth: 1
+                                        }]
+                                    },
+                                    options: {
+                                        scales: {
+                                            y: {
+                                                beginAtZero: true
+                                            }
+                                        }
+                                    }
+                                });
+                            </script>
+                        </div>
+
+                        <div class="col-lg-1 d-none d-md-none d-lg-block"></div>
+
+                {% if data5 %}
+                    <div class="col-lg-5 col-md-6 col-sm-12 col-12 mb-2 mt-4">
+                                <canvas id="myChart5" height="236px"></canvas>
+                                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                                <!-- Chart script goes here -->
+                                
+                    <script>
+                        const ctx4 = document.getElementById('myChart5');
+                        const labels5 = [{% if data5 %}{% for row in data5 %}"{{ row[0] }}",{% endfor %}{% endif %}];
+                    const intensity = [{% if data5 %}{% for row in data5 %}"{{ row[1] }}",{% endfor %}{% endif %}];
+
+                        new Chart(ctx4, {
+                            type: 'polarArea',
+                            data: {
+                                labels:labels5,
+                                datasets: [{
+                                    label: 'Intensity',
+                                    data: intensity,
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    y: {
+                                        beginAtZero: true
+                                    }
+                                }
+                            }
+                        });
+                    </script>
+                            </div>
+                {% endif %}
+                <div class="col-lg-1 d-none d-md-none d-lg-block"></div>
+
+                {% if data3 %}
+                <div class="row">
+                    <div class="col-lg-5 col-md-6 col-sm-12 col-12 mb-2 mt-4">
+                                <canvas id="myChart3" height="236px"></canvas>
+                                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                                <!-- Chart script goes here -->
+                                
+                        <script>
+                            const ctx2 = document.getElementById('myChart3');
+                            const labels2 = [{% if data3 %}{% for row in data3 %}"{{ row[0] }}",{% endfor %}{% endif %}];
+                        const relevance = [{% if data3 %}{% for row in data3 %}"{{ row[1] }}",{% endfor %}{% endif %}];
+
+                            new Chart(ctx2, {
+                                type: 'pie',
+                                data: {
+                                    labels:labels2,
+                                    datasets: [{
+                                        label: 'Relevance',
+                                        data: relevance,
+                                        borderWidth: 1
+                                    }]
+                                },
+                                options: {
+                                    scales: {
+                                        y: {
+                                            beginAtZero: true
+                                        }
+                                    }
+                                }
+                            });
+                        </script>
+                        </div>
+
+                        {% endif %}
+                        <div class="col-lg-1  d-none d-md-none d-lg-block"></div>
+                        {% if data4 %}
+                            <div class="col-lg-5 col-md-6 col-sm-12 col-12 mb-2 mt-4">
+                                        <canvas id="myChart4"></canvas>
+                                        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        
+                                
+                            <script>
+
+                                const ctx3 = document.getElementById('myChart4');
+                                const labels3 = [{% if data4 %}{% for row in data4 %}"{{ row[0] }}",{% endfor %}{% endif %}];
+                                const Likelihood = [{% if data4 %}{% for row in data4 %}"{{ row[1] }}",{% endfor %}{% endif %}];
+
+                                new Chart(ctx3, {
+                                    type: 'radar',
+                                    data: {
+                                        labels: labels3,
+                                        datasets: [{
+                                            label: 'Likelihood',
+                                            data: Likelihood,
+                                            borderWidth: 1
+                                        }]
+                                    },
+                                    options: {
+                                        scales: {
+                                            y: {
+                                                beginAtZero: true
+                                            }
+                                        }
+                                    }
+                                });
+                            </script>
+                            </div>
+                        </div>
+                {% endif %}
+                <div class="col-lg-1  d-none d-md-none d-lg-block"></div>
+
+            {% if data2 %}
+            <div class="row">
+                <div class="col-lg-3 col-md-3 d-none d-sm-block"></div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-2 mt-4">
+                        <canvas id="myChart1"></canvas>
+                        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                        <!-- Chart script goes here -->
+                        <script>
+                            const ctx1 = document.getElementById('myChart1');
+                            const labels1 = [{% if data2 %}{% for row in data2 %}"{{ row[0] }}",{% endfor %}{% endif %}];
+                            const start_year = [{% if data2 %}{% for row in data2 %}"{{ row[1] }}",{% endfor %}{% endif %}];
+
+                            new Chart(ctx1, {
+                                type: 'bar',
+                                data: {
+                                    labels: labels1,
+                                    datasets: [{
+                                        label: 'Start_year',
+                                        data: start_year,
+                                        borderWidth: 1
+                                    }]
+                                },
+                                options: {
+                                    scales: {
+                                        y: {
+                                            beginAtZero: true
+                                        }
+                                    }
+                                }
+                            });
+                        </script>
+                    </div>
+                    <div class="col-lg-3  col-md-3 d-none d-sm-block"></div>
+                </div>
+
+        {% endif %}
+
+
+            </div>
+        </div>
+    </div>
+{% endblock body %}
+
